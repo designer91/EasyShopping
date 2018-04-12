@@ -1,3 +1,12 @@
+html{
+	height: 100%;
+}
+
+body {
+    padding-top: 70px; 
+    height: 100%;
+}
+
 /*=================================*/
 /* toggle button animation : start*/
 /*===============================*/
@@ -79,10 +88,6 @@ button.navbar-toggle.collapsed:hover{
 }
 /* toggle button animation : end*/
 
-body {
-    padding-top: 70px; 
-}
-
 .slide-image {
     width: 100%;
 }
@@ -125,5 +130,21 @@ body {
 }
 
 footer {
-    margin: 50px 0;
+    margin: 0;
+}
+
+/*==== customized style ===*/
+.wrapper{
+	min-height: 100%;
+	position: relative;
+}
+
+.content{
+	padding-bottom: 60px;
+}
+
+.footer{
+	position: absolute;
+	bottom: 15;
+	height: 60px;
 }
