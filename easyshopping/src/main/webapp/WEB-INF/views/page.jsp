@@ -42,7 +42,7 @@
 	<div class="wrapper">
 
 	    <!-- Navigation -->
-	  	<%@ include file="./header_footer/navbar.jsp" %>
+	  	<%@ include file="./shared/navbar.jsp" %>
 	
 		<!-- Page Content -->
 		
@@ -59,11 +59,16 @@
 		    <c:if test="${userClickContact == true}">
 		    	<%@ include file="contact.jsp" %>
 		    </c:if>
+		    <!-- load only when the user click view products -->
+		    <c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
+		    	<%@ include file="products.jsp" %>
+		    </c:if>
+		  
 		</div>
 	
 		<!-- Footer -->
 		
-	    <%@ include file="./header_footer/footer.jsp" %>
+	    <%@ include file="./shared/footer.jsp" %>
 	
 		<!--// js files //-->
 		

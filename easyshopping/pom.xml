@@ -14,6 +14,12 @@
   </properties>
   
   <dependencies>
+  	<!-- link to back-end project -->
+  	<dependency>
+  		<groupId>ma.fstbm</groupId>
+		<artifactId>easyshoppingbackend</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
   	<!-- JAVA EE API -->
   	<dependency>
     	<groupId>javax</groupId>
