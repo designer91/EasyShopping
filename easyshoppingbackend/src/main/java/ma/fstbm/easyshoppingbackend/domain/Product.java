@@ -4,26 +4,38 @@ import java.io.Serializable;
 import java.util.UUID;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
+@Table(name="products")
 public class Product implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long productID;
 	private String productSKU;
 	private String productName;
+	@JsonIgnore
 	private String productDesc;
 	private double productPrice;
 	private int productQuantity;
 	@Column(name="is_active")
+	@JsonIgnore
 	private boolean active;
+	@JsonIgnore
 	private Long categoryID;
+	@JsonIgnore
 	private Long supplierID;
 	private int purchases;
 	private int views;

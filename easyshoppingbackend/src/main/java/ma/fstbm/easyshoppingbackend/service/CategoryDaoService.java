@@ -13,6 +13,7 @@ import ma.fstbm.easyshoppingbackend.dao.CategoryDAO;
 import ma.fstbm.easyshoppingbackend.domain.Category;
 
 @Repository("categoryDAO")
+@Transactional
 public class CategoryDaoService implements CategoryDAO {
 
 	@Autowired
@@ -20,7 +21,7 @@ public class CategoryDaoService implements CategoryDAO {
 	
 	private static List<Category> categories = new ArrayList<>();
 	
-	static {
+	/*static {
 		Category category = new Category();
 		category.setCategoryID(1L);
 		category.setCategoryName("Informatique");
@@ -53,32 +54,32 @@ public class CategoryDaoService implements CategoryDAO {
 		category.setActive(true);
 		categories.add(category);
 		
-	}
+	}*/
 	
 	@Override
 	public List<Category> list() {
 		
-//		String selectActiveCategory = " FROM Category WHERE active =:active ";
-//		
-//		Query query = sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
-//		
-//		query.setParameter("active", true);
-//		
-//		return query.getResultList();
-		return categories;
+		String selectActiveCategory = " FROM Category WHERE active =:active ";
+		
+		Query query = sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
+		
+		query.setParameter("active", true);
+		
+		return query.getResultList();
+		
+	  //return categories;
 		
 	}
 
 	@Override
 	public Category getCategoryById(Long id) {
-		for (Category category : categories) {
+		/*for (Category category : categories) {
 			if (category.getCategoryID() == id) { return category; }
-		}
-		return null;
+		}*/
+		return sessionFactory.getCurrentSession().get(Category.class, Long.valueOf(id));
 	}
 
 	@Override
-	@Transactional
 	public boolean addCategory(Category category) {
 		
 		try {
@@ -92,7 +93,6 @@ public class CategoryDaoService implements CategoryDAO {
 	}
 
 	@Override
-	@Transactional
 	public boolean updateCategory(Category category) {
 		try {
 			sessionFactory.getCurrentSession().update(category);
@@ -104,7 +104,6 @@ public class CategoryDaoService implements CategoryDAO {
 	}
 
 	@Override
-	@Transactional
 	public boolean deleteCategory(Category category) {
 		
 		category.setActive(false);

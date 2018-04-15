@@ -23,4 +23,4 @@ hs_err_pid*
 
 /easyshopping/target/
 /easyshoppingbackend/target/
-
+/easyshopping/src/main/webapp/assets/bootstrap/less/

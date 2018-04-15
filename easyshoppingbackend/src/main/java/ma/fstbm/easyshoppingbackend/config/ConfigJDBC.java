@@ -5,10 +5,12 @@ import java.util.Properties;
 import javax.sql.DataSource;
 
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.hibernate.SessionFactory;
 //import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -65,9 +67,12 @@ public class ConfigJDBC {
         return hibernateProperties;
     }
     
-    
+	/*@Configuration
+	@ComponentScan(basePackages= {"ma.fstbm.easyshoppingbackend"})
+	@EnableTransactionManagement
+	public class ConfigJDBC {
 
-	/*private final static String DATABASE_URL = "jdbc:mysql://localhost:3306/easyshopping_db";
+	private final static String DATABASE_URL = "jdbc:mysql://localhost:3306/easyshopping_db";
 	private final static String DATABASE_DRIVER = "com.mysql.jdbc.Driver";
 	private final static String DATABASE_DIALECT = "org.hibernate.dialect.MySQL5Dialect";
 	private final static String DATABASE_USERNAME = "root";
@@ -106,7 +111,7 @@ public class ConfigJDBC {
 		
 		builder.addProperties(getHibernateProperties());
 		
-		builder.scanPackages("ma.fstbm.easyshopping.domain");
+		builder.scanPackages("ma.fstbm.easyshopping");
 		
 		
 		return builder.buildSessionFactory();
@@ -163,8 +168,8 @@ public class ConfigJDBC {
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager();
 		transactionManager.setSessionFactory(sessionFactory().getObject());
 		return transactionManager;
-	}
-	 */
+	}*/
+	 
   
 }
 

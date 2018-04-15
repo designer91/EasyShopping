@@ -4,7 +4,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <spring:url var="bootstrap" value="/resources/bootstrap"/>
-<spring:url var="images" value="/resources/images"/>
+<spring:url var="images" value="/resources/images/"/>
 
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>    
 
@@ -23,17 +23,20 @@
 
 	<script type="text/javascript">
 		window.menu = '${title}';
+		window.contextRoot = '${contextRoot}';
 	</script>
 	
     <!-- Bootstrap Core CSS -->
     <link href="${bootstrap}/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap Theme 
-    <link href="${bootstrap}/css/bootstrap-superhero-theme.min.css" rel="stylesheet">-->
+ 
+    <!-- Bootstrap DataTable CSS -->
+    <link href="${bootstrap}/css/dataTables.bootstrap.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="${bootstrap}/css/app.css" rel="stylesheet">
-    <link href="${bootstrap}/less/bootstrap.less" rel="stylesheet/less"/>
+    
+    <!-- less CSS 
+    <link href="${bootstrap}/less/bootstrap.less" rel="stylesheet/less"/> -->
 
 </head>
 
@@ -63,6 +66,10 @@
 		    <c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
 		    	<%@ include file="products.jsp" %>
 		    </c:if>
+		    <!-- load when a user click view a ingle product -->
+		    <c:if test="${userClickViewProduct == true}">
+		    	<%@ include file="singleProduct.jsp" %>
+		    </c:if>
 		  
 		</div>
 	
@@ -74,12 +81,16 @@
 		
 	    <!-- jQuery -->
 	    <script src="${bootstrap}/js/jquery.js"></script>
-	
+	    
 	    <!-- Bootstrap Core JavaScript -->
 	    <script src="${bootstrap}/js/bootstrap.min.js"></script>
 	    
-	    <!-- less bootstrap -->
-	    <script src="${bootstrap}/js/less.js"></script>
+	   	<!-- jQuery DataTables -->
+	    <script src="${bootstrap}/js/jquery.dataTables.js"></script>
+	    <script src="${bootstrap}/js/dataTables.bootstrap.js"></script>
+	    
+	    <!-- less bootstrap
+	    <script src="${bootstrap}/js/less.js"></script> --> 
 	    
 	    <!-- customized js -->
 	    <script src="${bootstrap}/js/customized.js"></script>

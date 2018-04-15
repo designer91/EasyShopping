@@ -10,6 +10,6 @@ public interface CategoryDAO {
 	boolean updateCategory(Category category);
 	boolean deleteCategory(Category category);
 	List<Category> list();
-	Category getCategoryById(Long id);
+	Category getCategoryById(Long catID);
 
 }

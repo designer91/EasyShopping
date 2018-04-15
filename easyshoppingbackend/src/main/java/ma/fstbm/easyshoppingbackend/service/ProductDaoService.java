@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ma.fstbm.easyshoppingbackend.dao.ProductDAO;
 import ma.fstbm.easyshoppingbackend.domain.Product;
 
-@Repository("ProductDAO")
+@Repository("productDAO")
 @Transactional
 public class ProductDaoService implements ProductDAO{
 	
