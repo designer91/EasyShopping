@@ -24,9 +24,9 @@
 		<!-- Display the product image -->
 		<div class="col-xs-12 col-sm-4">
 		
-			<div class="thumbnail">
+			<div class="singlePageImg">
 							
-				<img src="${images}/${product.productSKU}.jpg" class="img img-responsive"/>
+				<img src="${images}/${product.productCode}.jpg" class="img img-responsive"/>
 						
 			</div>
 		

@@ -81,22 +81,22 @@
 		
 	    <%@ include file="./shared/footer.jsp" %>
 	
-		<!--// js files //-->
+		<!--============= js files =============-->
 		
 	    <!-- jQuery -->
 	    <script src="${bootstrap}/js/jquery.js"></script>
 	    
 	    <!-- Bootstrap Core JavaScript -->
 	    <script src="${bootstrap}/js/bootstrap.min.js"></script>
-	    
+  
 	   	<!-- jQuery DataTables -->
-	    <script src="${bootstrap}/js/jquery.dataTables.js"></script>
-	    <script src="${bootstrap}/js/dataTables.bootstrap.js"></script>
+	    <script src="${bootstrap}/js/jquery.dataTables.min.js"></script>
+	    <script src="${bootstrap}/js/dataTables.bootstrap.min.js"></script>
 	    
 	    <!-- less bootstrap
 	    <script src="${bootstrap}/js/less.js"></script> --> 
 	   
-	   <!-- bootbox js -->
+	    <!-- bootbox js -->
 	    <script src="${bootstrap}/js/bootbox.min.js"></script>
 	    
 	    <!-- customized js -->

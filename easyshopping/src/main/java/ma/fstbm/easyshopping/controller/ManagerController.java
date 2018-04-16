@@ -12,9 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import ma.fstbm.easyshopping.utils.FileUploading;
@@ -53,6 +55,8 @@ public class ManagerController {
 		if (operation != null) {
 			if (operation.equals("product")) {
 				mv.addObject("message", "Product added successfully!");
+			}else if(operation.equals("category")){
+				mv.addObject("message", "Category added successfully!");				
 			}
 		}
 		
@@ -60,23 +64,50 @@ public class ManagerController {
 		
 	}
 	
-	/*
-	 *  	manage product submission 
-	 * */
+	
+	/*******************************
+	  *  Activate a product method  *
+	   *******************************/
+	
+	@RequestMapping(value="/{id}/product", method=RequestMethod.GET)
+	public ModelAndView showEditProduct(@PathVariable Long id) {		
+
+		ModelAndView mv = new ModelAndView("page");
+		
+		mv.addObject("title", "Manage Products");		
+		mv.addObject("userClickManageProduct", true);
+			
+		Product newProduct = productDAO.getProduct(id);
+		
+		mv.addObject("product", newProduct);
+		
+		return mv;
+		
+	}
+	
+	
+	/**************************************************
+	  *   Handling submission of a new/edited product  *
+	   * ************************************************/
+
 	@RequestMapping(value="/products", method=RequestMethod.POST)
 	public String ManageProductSubmission(@Valid @ModelAttribute("product") Product modifiedProduct, 
 												BindingResult results, Model model, HttpServletRequest request) {
 		
 		
-		/*
-		 * 		call of the product validator
-		 */
-		new ProductValidator().validate(modifiedProduct, results);
+		/**** handle image validation : call of the product validator ****/
+		
+		if (modifiedProduct.getProductID() == null) {
+			new ProductValidator().validate(modifiedProduct, results);
+		}else {
+			if (!modifiedProduct.getFile().getOriginalFilename().equals("")) {
+				new ProductValidator().validate(modifiedProduct, results);
+			}
+		}
 		
 		
-		/*
-		 *      check if ther are errors
-		 */
+		/****** check if there are errors ********/
+		
 		if (results.hasErrors()) {
 			
 			model.addAttribute("userClickManageProduct", true);
@@ -88,7 +119,20 @@ public class ManagerController {
 		
 		logger.info(modifiedProduct.toString());
 		
-		productDAO.addProduct(modifiedProduct);
+		/************* create a new product *************/
+		
+		if (modifiedProduct.getProductID() == null) {
+		
+			productDAO.addProduct(modifiedProduct);
+		
+		}else {
+			
+			/************* update the product *************/
+			
+			productDAO.updateProduct(modifiedProduct);
+		
+		}
+		
 		
 		if (!modifiedProduct.getFile().getOriginalFilename().equals("")) {
 			FileUploading.uploadFile(request, modifiedProduct.getFile(), modifiedProduct.getProductCode());
@@ -98,12 +142,54 @@ public class ManagerController {
 		
 	}
 	
+	/*******************************
+	  *  Activate a product method  *
+	   *******************************/
+	
+	@RequestMapping(value="/product/{id}/activate", method=RequestMethod.POST)
+	@ResponseBody
+	public String  ManageProductActivation(@PathVariable Long id ){
+		
+		Product product = productDAO.getProduct(id);
+		
+		boolean isActive = product.isActive();
+		
+		product.setActive(!isActive);
+		
+		productDAO.updateProduct(product);
+		
+		return (isActive)? 
+							"product "+product.getProductID()+" deactivated successfully!":
+								"product "+product.getProductID()+" activated successfully!";		
+		
+	}
+	
+
+	/******************************************
+	  *  handle submission of a new category   *
+	   ******************************************/
+	
+	@RequestMapping(value = "/category", method=RequestMethod.POST)
+	public String managePostCategory(@ModelAttribute("category") Category category, HttpServletRequest req) {					
+		categoryDAO.addCategory(category);		
+		return "redirect:/manage/products?operation=category";
+	}
+	
 	
 	@ModelAttribute("categories")
 	public List<Category> getCategories() {		
 		
 		return categoryDAO.list();
 		
+	}
+	
+	/*************************
+	  *  add a new category   *
+	   *************************/
+	
+	@ModelAttribute("category")
+	public Category modelCategory() {
+		return new Category();
 	}
 	
 }

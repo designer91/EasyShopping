@@ -136,9 +136,9 @@ $(document).ready(function() {
 	
 	
 	
-	/*************************************
-	 * 	dismiss alert after 3s version 1  *
-	  **************************************/
+	/*
+	 * 		dismiss alert after 3s
+	 */
 	
 	$alert = $('.alert');
 	if($alert.length) {
@@ -150,8 +150,8 @@ $(document).ready(function() {
 		
 	
 	/***********************
-	  *   admin data table  *
-	   ***********************/
+	 *   admin data table  *
+	 ***********************/
 	
 	var $adminProductsTable = $('#adminProductsTable');
 
@@ -183,7 +183,7 @@ $(document).ready(function() {
 					columns : [
 							
 							{
-								data : 'productID',
+								data : 'id',
 							},
 							{
 								data : 'productCode',
@@ -249,7 +249,7 @@ $(document).ready(function() {
 									
 									var str = '';
 									
-									str+= '<a href="' + window.contextRoot + '/manage/'+data+'/product" class="btn btn-warning">';
+									str+= '<a href="${contextRoot}/manage/'+data+'/product" class="btn btn-warning">';
 									str+= '<span class="glyphicon glyphicon-pencil"></span></a>';
 								
 									return str;
@@ -280,16 +280,11 @@ $(document).ready(function() {
 							   	callback: function(confirmed) {
 							        if (confirmed) {
 								        console.log(value);
-								        
-								        var activateUrl = window.contextRoot + '/manage/product/' + value + '/activate';
-								        
-								        $.post(activateUrl, function(data) {
-								        	 bootbox.alert({
-											     size: 'medium',
-											     title: 'information',
-											     message:  data
-										     });
-										});
+								        bootbox.alert({
+								        	size: 'medium',
+								        	title: 'information',
+								        	message: 'operation about to be done on product ' + value
+								        });
 								    }
 								     else{
 								        checkbox.prop('checked', !checked);
