@@ -18,7 +18,9 @@
   </properties>
 
   <dependencies>
+    
     <!-- Spring dependencies -->
+    
     <dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-core</artifactId>
@@ -50,19 +52,28 @@
     	<artifactId>spring-beans</artifactId>
     	<version>${spring.version}</version>
     </dependency>
+    
+    
     <!-- Hibernate  -->
+    
     <dependency>
     	<groupId>org.hibernate</groupId>
     	<artifactId>hibernate-core</artifactId>
     	<version>${hibernate.version}</version>
     </dependency>
+    
+	
 	<!-- MySQL JDBC Connector -->
+    
     <dependency>
     	<groupId>mysql</groupId>
     	<artifactId>mysql-connector-java</artifactId>
     	<version>5.1.46</version>
     </dependency>
+    
+    
     <!-- Database Connection Pooling -->
+    
     <dependency>
     	<groupId>org.apache.commons</groupId>
     	<artifactId>commons-dbcp2</artifactId>
@@ -74,14 +85,20 @@
     		</exclusion>
     	</exclusions>
     </dependency>
+    
+    
     <!-- JUnit test -->
+    
     <dependency>
     	<groupId>junit</groupId>
     	<artifactId>junit</artifactId>
     	<version>4.7</version>
     	<scope>test</scope>
     </dependency>
+    
+    
     <!-- jackson for json -->
+    
     <dependency>
     	<groupId>com.fasterxml.jackson.core</groupId>
     	<artifactId>jackson-databind</artifactId>
@@ -92,7 +109,10 @@
     	<artifactId>jackson-annotations</artifactId>
     	<version>${jackson.version}</version>
     </dependency>
+	
+	
 	<!-- SLF4J Logging -->
+    
     <dependency>
     	<groupId>org.slf4j</groupId>
     	<artifactId>jcl-over-slf4j</artifactId>
@@ -103,6 +123,22 @@
     	<artifactId>logback-classic</artifactId>
     	<version>1.2.1</version>
     </dependency>
+    
+    
+    <!-- validation -->
+    
+    <dependency>
+    	<groupId>org.hibernate</groupId>
+    	<artifactId>hibernate-validator</artifactId>
+    	<version>5.4.1.Final</version>
+    </dependency>
+    <dependency>
+	    <groupId>javax.validation</groupId>
+	    <artifactId>validation-api</artifactId>
+	    <version>1.1.0.Final</version>
+	</dependency>
+    
+    
   </dependencies>
   
   <build>

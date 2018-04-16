@@ -70,6 +70,10 @@
 		    <c:if test="${userClickViewProduct == true}">
 		    	<%@ include file="singleProduct.jsp" %>
 		    </c:if>
+		    <!-- load when a user click manage products -->
+		    <c:if test="${userClickManageProduct == true}">
+		    	<%@ include file="manageProducts.jsp" %>
+		    </c:if>
 		  
 		</div>
 	
@@ -91,9 +95,13 @@
 	    
 	    <!-- less bootstrap
 	    <script src="${bootstrap}/js/less.js"></script> --> 
+	   
+	   <!-- bootbox js -->
+	    <script src="${bootstrap}/js/bootbox.min.js"></script>
 	    
 	    <!-- customized js -->
 	    <script src="${bootstrap}/js/customized.js"></script>
+	   
 	
 	</div>
 </body>

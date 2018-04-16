@@ -10,7 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.Min;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -24,14 +26,18 @@ public class Product implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long productID;
+	private String productCode;
+	@NotBlank(message="please enter a SKU for the product")
 	private String productSKU;
+	@NotBlank(message="please enter a name for the product")
 	private String productName;
 	@JsonIgnore
+	@NotBlank(message="please enter a description for the product")
 	private String productDesc;
+	@Min(value=1, message="please note that the price can't be below 1")
 	private double productPrice;
 	private int productQuantity;
 	@Column(name="is_active")
-	@JsonIgnore
 	private boolean active;
 	@JsonIgnore
 	private Long categoryID;
@@ -56,7 +62,7 @@ public class Product implements Serializable{
 	 */
 
 	public Product() {
-		this.productSKU = "PRDOUDCT" + UUID.randomUUID().toString().substring(26).toUpperCase();
+		this.productCode = "PRD-" + UUID.randomUUID().toString().substring(26).toUpperCase();
 	}
 
 	public Product(String productSKU, String productName, String productDesc, double productPrice, int productQuantity,
@@ -84,6 +90,14 @@ public class Product implements Serializable{
 
 	public void setProductID(Long productID) {
 		this.productID = productID;
+	}
+
+	public String getProductCode() {
+		return productCode;
+	}
+
+	public void setProductCode(String productCode) {
+		this.productCode = productCode;
 	}
 
 	public String getProductSKU() {
@@ -164,6 +178,18 @@ public class Product implements Serializable{
 
 	public void setViews(int views) {
 		this.views = views;
+	}
+	
+	/*
+	 *   Debug
+	 */
+	@Override
+	public String toString() {
+		return "Product [productID=" + productID + ", productCode=" + productCode + ", productSKU=" + productSKU
+				+ ", productName=" + productName + ", productDesc=" + productDesc + ", productPrice=" + productPrice
+				+ ", productQuantity=" + productQuantity + ", active=" + active + ", categoryID=" + categoryID
+				+ ", supplierID=" + supplierID + ", purchases=" + purchases + ", views=" + views + ", file=" + file
+				+ "]";
 	}
 	
 }

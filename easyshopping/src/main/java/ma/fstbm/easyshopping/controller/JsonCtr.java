@@ -24,6 +24,13 @@ public class JsonCtr {
 		return productDAO.getListActiveProducts(); 
 	}
 	
+	@RequestMapping("/admin/all/products")
+	@ResponseBody
+	public List<Product> getAllProductsList() {		
+		return productDAO.list();
+				
+	}	
+	
 	@RequestMapping("/category/{categoryID}/products")
 	@ResponseBody
 	public List<Product> getPrpductsByCategory(@PathVariable Long categoryID){
