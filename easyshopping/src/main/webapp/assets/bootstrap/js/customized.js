@@ -311,6 +311,46 @@ $(document).ready(function() {
 	}
 	
 	
+	/*********************************
+	  *   category modal validation   *
+	   *********************************/
+	
+	var $categoryForm = $('#categoryForm');
+	
+	if($categoryForm.length) {
+		
+		$categoryForm.validate({			
+				rules: {
+					categoryName: {
+						required: true,
+						minlength: 5
+					},
+					categoryDesc: {
+						required: true,
+						minlength: 5					
+					}				
+				},
+				messages: {					
+					name: {
+						required: 'Please enter a category name!',
+						minlength: 'Please enter at least five characters'
+					},
+					description: {
+						required: 'Please enter category description!',
+						minlength: 'Please enter at least five characters'
+					}					
+				},
+				errorElement : "em",
+				errorPlacement : function(error, element) {
+					error.addClass('help-block');
+					error.insertAfter(element);
+				}				
+			}
+		
+		);
+		
+	}
+		
 	
 
 	
