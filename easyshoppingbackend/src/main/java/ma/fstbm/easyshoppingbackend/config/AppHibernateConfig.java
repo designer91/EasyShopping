@@ -13,63 +13,10 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-/*@Configuration
-@ComponentScan(basePackages= {"ma.fstbm.easyshoppingbackend"})
-@EnableTransactionManagement
-public class ConfigJDBC {	
-	
-	private final static String DATABASE_URL = "jdbc:mysql://localhost:3306/easyshopping_db";
-	private final static String DATABASE_DRIVER = "com.mysql.jdbc.Driver";
-	private final static String DATABASE_DIALECT = "org.hibernate.dialect.MySQLDialect";
-	private final static String DATABASE_USERNAME = "root";
-	private final static String DATABASE_PASSWORD = "";
-	
-	
-    @Bean
-    public LocalSessionFactoryBean sessionFactory() {
-        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan("ma.fstbm.easyshoppingbackend.domain");
-        sessionFactory.setHibernateProperties(hibernateProperties());
- 
-        return sessionFactory;
-    }
- 
-    @Bean
-    public DataSource dataSource() {
-        BasicDataSource dataSource = new BasicDataSource();
-        dataSource.setDriverClassName(DATABASE_DRIVER);
-        dataSource.setUrl(DATABASE_URL);
-        dataSource.setUsername(DATABASE_USERNAME);
-        dataSource.setPassword(DATABASE_PASSWORD);
- 
-        return dataSource;
-    }
-       
-    @Bean
-    public PlatformTransactionManager hibernateTransactionManager() {
-        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
-        transactionManager.setSessionFactory(sessionFactory().getObject());
-        return transactionManager;
-    }
-    
-    private final Properties hibernateProperties() {
-        Properties hibernateProperties = new Properties();
-      
-        hibernateProperties.setProperty( "hibernate.dialect", DATABASE_DIALECT);
-        hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
-        hibernateProperties.setProperty("hibernate.show_sql", "true");
-        hibernateProperties.setProperty("hibernate.format_sql", "true");
-      
-        return hibernateProperties;
-    }
-    */
-
-
 @Configuration
 @ComponentScan(basePackages={"ma.fstbm.easyshoppingbackend.domain"})
 @EnableTransactionManagement
-public class AppJDBCConfig {
+public class AppHibernateConfig {
 
 	// Change the below based on the DBMS you choose
 	private final static String DATABASE_URL = "jdbc:mysql://localhost:3306/easyshopping_db";
