@@ -138,21 +138,6 @@ footer {
     margin: 0;
 }
 
-/* ==== customized footer style ===
-.wrapper{
-	min-height: 100%;
-	position: relative;
-}
-
-.content{
-	padding-bottom: 60px;
-}
-
-.footer{
-	position: absolute;
-	bottom: 15;
-	height: 60px;
-} */
 
 /**
  * Footer Styles
@@ -243,7 +228,13 @@ input:checked + .slider:before {
 /******************************
   *  single page product style  *
    *******************************/
-.singlePageImg img{
-	height: 400px;
-	width: 400px;
-} 
+
+   
+   
+.table-responsive{
+	overflow-x: inherit; 
+}
+   
+   
+   
+   

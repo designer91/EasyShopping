@@ -1,11 +1,18 @@
 package ma.fstbm.easyshopping.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import ma.fstbm.easyshopping.exception.ProductNotAvailableException;
@@ -118,6 +125,70 @@ public class PageController {
 		return mv;
 		
 	}
+	
+	
+	/*========================
+	  * 	Login Method      *
+	   =========================*/
+	
+	@RequestMapping(value="/login")
+	public ModelAndView login( @RequestParam(name="error", required=false) String error,
+							   @RequestParam(name="logout", required = false) String logout ) {
+		
+		ModelAndView mv = new ModelAndView("login");
+		
+		if (error != null) {
+			mv.addObject("message", "invalid credentials! verify username and password and try again.");
+		}
+
+		if (logout != null) {
+			mv.addObject("logout", "You have logged out successfully!");
+		}
+		
+		mv.addObject("title", "login");
+		
+		return mv;
+		
+	}
+
+	
+	/*========================
+	  * 	 Access Denied     *
+	   =========================*/
+	
+	@RequestMapping(value="/access-denied")
+	public ModelAndView accessDenied() {
+		
+		ModelAndView mv = new ModelAndView("errors");
+		
+		mv.addObject("title", "403 - Access Denied");
+
+		mv.addObject("errorTitle", "Page not accessible.");
+		
+		mv.addObject("errorDescription", "Sorry !  You are not allowed to view this page.");
+		
+		return mv;
+		
+	}
+
+	
+	/*========================
+	  * 	Logout Method     *
+	   =========================*/
+	
+	@RequestMapping(value="/perform-logout")
+	public String logout(HttpServletRequest req, HttpServletResponse res) {
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    if (auth != null){    
+	        new SecurityContextLogoutHandler().logout(req, res, auth);
+	    }
+		
+		return "redirect:/login?logout";
+		
+	}
+	
+
 	
 	
 }

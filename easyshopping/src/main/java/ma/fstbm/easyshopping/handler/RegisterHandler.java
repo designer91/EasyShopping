@@ -3,6 +3,7 @@ package ma.fstbm.easyshopping.handler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import ma.fstbm.easyshopping.model.RegisterModel;
@@ -16,6 +17,9 @@ public class RegisterHandler {
 	
 	@Autowired
 	private UserDAO userDAO;
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 	
 
 	public RegisterModel init() {
@@ -55,6 +59,13 @@ public class RegisterHandler {
 			user.setCart(cart);
 		
 		}
+		
+		
+		/*  Encode the password  
+		 * =====================*/
+		
+		user.setUserPassword(passwordEncoder.encode(user.getUserPassword()));
+		
 		
 		/*  save the user  
 		 * ===============*/

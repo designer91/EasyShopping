@@ -199,39 +199,46 @@
 				
 		<div class='col-xs-12'>
 		
-			<table id="adminProductsTable" class="table table-striped table-bordered">
+			<div class="container-fluid">
+			
+				<div class="table-responsive">
+				
+					<table id="adminProductsTable" class="table table-striped table-bordered">
 							
-				<thead>					
-					<tr>					
-						<th>Id</th>
-						<th>&#160;</th>
-						<th>Name</th>
-						<th>SKU</th>
-						<th>Qty. </th>
-						<th>Price</th>
-						<th>Activate</th>				
-						<th>Edit</th>
-					</tr>					
-				</thead>
-				
-				<tfoot>
-				
-					<tr>					
-						<th>Id</th>
-						<th>&#160;</th>
-						<th>Name</th>
-						<th>SKU</th>
-						<th>Qty. </th>
-						<th>Price</th>
-						<th>Activate</th>				
-						<th>Edit</th>
-					</tr>	
-					
-												
-				</tfoot>
-				
+						<thead>					
+							<tr>					
+								<th>Id</th>
+								<th>&#160;</th>
+								<th>Name</th>
+								<th>SKU</th>
+								<th>Qty. </th>
+								<th>Price</th>
+								<th>Activate</th>				
+								<th>Edit</th>
+							</tr>					
+						</thead>
+						
+						<tfoot>
+						
+							<tr>					
+								<th>Id</th>
+								<th>&#160;</th>
+								<th>Name</th>
+								<th>SKU</th>
+								<th>Qty. </th>
+								<th>Price</th>
+								<th>Activate</th>				
+								<th>Edit</th>
+							</tr>	
 							
-			</table>
+														
+						</tfoot>
+							
+					</table>
+				
+				</div>
+			
+			</div>
 		
 		
 		</div>

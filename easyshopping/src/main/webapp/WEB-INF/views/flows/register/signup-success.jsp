@@ -11,7 +11,8 @@
 				<h3>easyshopping.com</h3>
 				<h6>You can use your email address as UserName to login!</h6>
 				<div>
-					<a href="${contextRoot}/login" class="btn btn-lg btn-success">Login Here</a>
+					<a href="${contextRoot}/login" class="btn btn-lg btn-success">Login Here</a>  &nbsp;
+					<a href="${contextRoot}/home" class="btn btn-lg btn-primary">Home Page</a>
 				</div>
 			</div>
 

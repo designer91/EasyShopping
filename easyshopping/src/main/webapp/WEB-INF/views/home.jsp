@@ -24,7 +24,7 @@
 						<div class="carousel-inner">
 							<div class="item active">
 								<img class="slide-image" 
-										src="${images}/img-carousel-1.jpg"
+										src="${images}/img-carousel-4.jpg"
 											alt="">
 							</div>
 							<div class="item">
