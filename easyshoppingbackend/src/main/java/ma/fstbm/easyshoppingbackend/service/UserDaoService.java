@@ -47,21 +47,6 @@ public class UserDaoService implements UserDAO{
 	}
 	
 	
-
-	@Override
-	public boolean updateCart(ShoppingCart cart) {
-		try {			
-			sessionFactory.getCurrentSession().update(cart);			
-			return true;
-		}
-		catch(Exception ex) {
-			ex.printStackTrace();
-			return false;
-		}
-	}
-
-	
-	
 	
 	@Override
 	public User get(Long id) {

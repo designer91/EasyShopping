@@ -84,7 +84,7 @@
 			
 			
 
-			<a href="${contextRoot}/show/all/products" class="btn btn-info">Go Back</a>
+			<a href="${contextRoot}/home" class="btn btn-info">Go Back</a>
 					
 		</div>
 

@@ -31,7 +31,7 @@ public class Product implements Serializable{
 	private String productSKU;
 	@NotBlank(message="please enter a name for the product")
 	private String productName;
-	@JsonIgnore
+	//@JsonIgnore
 	@NotBlank(message="please enter a description for the product")
 	private String productDesc;
 	@Min(value=1, message="please note that the price can't be below 1")

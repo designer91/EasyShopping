@@ -55,13 +55,14 @@
 				
 					<div class="table-responsive">
 					
-						<table id="productsTable" class="table table-striped table-bordered">
+						<table id="productsTable" class="table table-striped table-bordered"
+								style="width: 100%;">
 		
 							<thead>
 								<tr>
 									<th></th>
 									<th>Name</th>
-									<th>Price</th>
+									<th>Price /-dhs</th>
 									<th>Quantity</th>
 									<th></th>
 								</tr>

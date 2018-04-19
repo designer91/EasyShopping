@@ -10,26 +10,26 @@
 		<!--============= js files =============-->
 		
 	    <!-- jQuery -->
-	    <script src="${bootstrap}/js/jquery.js"></script>
+	    <script src="${js}/jquery.js"></script>
 
 	    <!-- jQuery Validator -->
-	    <script src="${bootstrap}/js/jquery.validate.min.js"></script>
+	    <script src="${js}/jquery.validate.min.js"></script>
 	    
 	    <!-- Bootstrap Core JavaScript -->
-	    <script src="${bootstrap}/js/bootstrap.min.js"></script>
+	    <script src="${js}/bootstrap.min.js"></script>
   
 	   	<!-- jQuery DataTables -->
-	    <script src="${bootstrap}/js/jquery.dataTables.min.js"></script>
-	    <script src="${bootstrap}/js/dataTables.bootstrap.min.js"></script>
+	    <script src="${js}/jquery.dataTables.min.js"></script>
+	    <script src="${js}/dataTables.bootstrap.min.js"></script>
 	    
-	    <!-- less bootstrap
-	    <script src="${bootstrap}/js/less.js"></script> --> 
+	    <!-- less bootstrap -->
+	    <script src="${js}/less.js"></script>  
 	   
 	    <!-- bootbox js -->
-	    <script src="${bootstrap}/js/bootbox.min.js"></script>
+	    <script src="${js}/bootbox.min.js"></script>
 	    
 	    <!-- customized js -->
-	    <script src="${bootstrap}/js/customized.js"></script>
+	    <script src="${js}/customized.js"></script>
 	   
 	
 	</div>

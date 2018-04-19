@@ -37,4 +37,17 @@ public class JsonCtr {
 		return productDAO.getListActiveProductsByCategory(categoryID); 
 	}
 	
+	
+	@RequestMapping("/mostviewd/products")
+	@ResponseBody
+	public List<Product> getMostViewedProducts() {		
+		return productDAO.getProductsByParam("views", 5);				
+	}
+		
+	@RequestMapping("/mostpurchased/products")
+	@ResponseBody
+	public List<Product> getMostPurchasedProducts() {		
+		return productDAO.getProductsByParam("purchases", 5);				
+	}
+	
 }
