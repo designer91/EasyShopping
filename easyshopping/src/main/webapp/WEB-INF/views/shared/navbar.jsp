@@ -9,9 +9,9 @@
 			<button type="button" class="navbar-toggle collapsed"
 				data-toggle="collapse" data-target="#the-menu" aria-expanded="false"
 				aria-label="Toggle navigation">
-				<div class="animated-icon1">
-					<span></span><span></span><span></span>
-				</div>
+				  <span class="icon-bar top-bar"></span>
+				  <span class="icon-bar middle-bar"></span>
+				  <span class="icon-bar bottom-bar"></span>
 			</button>
 			
 

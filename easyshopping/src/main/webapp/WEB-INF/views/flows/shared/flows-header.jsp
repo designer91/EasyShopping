@@ -4,6 +4,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <spring:url var="css" value="/resources/css"/>
+<spring:url var="less" value="/resources/less"/>
 <spring:url var="js" value="/resources/js"/>
 <spring:url var="images" value="/resources/images/"/>
 
@@ -37,7 +38,7 @@
     <link href="${css}/app.css" rel="stylesheet">
     
     <!-- less CSS -->
-    <link href="${css}/less/bootstrap.less" rel="stylesheet/less"/>
+    <link href="${less}/bootstrap.less" rel="stylesheet/less"/>
 
 </head>
 

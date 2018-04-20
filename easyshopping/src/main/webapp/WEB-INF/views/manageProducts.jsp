@@ -203,7 +203,8 @@
 			
 				<div class="table-responsive">
 				
-					<table id="adminProductsTable" class="table table-striped table-bordered">
+					<table id="adminProductsTable" class="table table-striped table-bordered"
+								style="width: 100%;">
 							
 						<thead>					
 							<tr>					

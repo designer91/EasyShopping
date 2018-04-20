@@ -32,7 +32,7 @@
     <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="${css}/app.css" rel="stylesheet">
+    <link href="${css}/app.css" rel="stylesheet"> 
     
     <!-- less CSS -->
     <link href="${less}/bootstrap.less" rel="stylesheet/less"/> 
