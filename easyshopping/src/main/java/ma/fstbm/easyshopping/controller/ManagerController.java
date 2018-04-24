@@ -66,7 +66,7 @@ public class ManagerController {
 	
 	
 	/*******************************
-	  *  Activate a product method  *
+	  *  Show edit product method   *
 	   *******************************/
 	
 	@RequestMapping(value="/{id}/product", method=RequestMethod.GET)

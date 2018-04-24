@@ -6,6 +6,7 @@ import ma.fstbm.easyshoppingbackend.domain.Product;
 
 public interface ProductDAO {
 	
+	
 	Product getProduct(Long productID);
 	List<Product> list();
 	boolean addProduct(Product product);
@@ -16,5 +17,8 @@ public interface ProductDAO {
 	List<Product> getListActiveProductsByCategory(Long categoryID);
 	List<Product> getLatestActiveProducts(int count);
 	List<Product> getProductsByParam(String param, int count);
+	
+	// reviews
+	Product getProductByReview(Long id);
 	
 }

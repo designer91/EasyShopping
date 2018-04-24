@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+
 
 <div class="container">
 
@@ -19,6 +21,25 @@
 		</div>
 	
 	</div>
+	
+	
+	<div class="row">
+			
+		<c:if test="${not empty message}">
+						
+			<div class="col-xs-12 col-md-offset-2 col-md-8">			
+				<div class="alert alert-success alert-dissmissible">
+					<button type="button" class="close" data-dissmiss="alert">&times;</button>
+					${message}
+				</div>				
+			</div>
+			
+		</c:if>
+			
+	</div>
+	
+	
+	
 	
 	<div class="row">
 	
@@ -72,6 +93,7 @@
 					</c:otherwise>
 				
 				</c:choose>
+				
 			
 			</security:authorize>
 
@@ -89,5 +111,64 @@
 		</div>
 
 	</div>
+
+	<br><br>
+	
+	<div class="row">
+
+		<div class="col-xs-12 col-sm-8 pull-right">
+
+		<security:authorize access="hasAuthority('USER')">
+
+			<!-- Preview Form -->
+
+			<sf:form method="post" modelAttribute="review" id="review"
+				action="${contextRoot}/product/review?id=${product.productID}">
+
+				<table border="2">
+
+					<tr>
+						
+						<td>Rating</td>
+						<td>
+							<div id="rating"></div> 
+							<input type="hidden" id="hiddenRating" name="hiddenRating">
+						</td>
+
+					</tr>
+
+					<tr>
+					
+						<td>Message</td>
+						<td><sf:textarea path="content"></sf:textarea></td>
+
+					</tr>
+
+					<tr>
+
+						<td>&nbsp;</td>
+						<td><input type="submit" name="submit" value="Rate"
+							class="btn btn-warning" /></td>
+							<sf:hidden path="product.productID"/>	
+							<sf:hidden path="user.userID"/>	
+
+					</tr>
+
+				</table>
+
+
+
+			</sf:form>
+
+
+		</security:authorize>
+		
+
+		</div>
+
+	</div>
+
+
+
 
 </div>

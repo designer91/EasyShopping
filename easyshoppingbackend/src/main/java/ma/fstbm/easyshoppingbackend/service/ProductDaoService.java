@@ -144,4 +144,28 @@ public class ProductDaoService implements ProductDAO{
 		
 	}
 	
+	
+	
+	
+	
+	@Override
+	public Product getProductByReview(Long id) {
+		
+		String query = "FROM Review WHERE reviewID = :id";
+		
+		
+			return sessionFactory
+					.getCurrentSession()
+						.createQuery(query, Product.class)
+								.getSingleResult();
+
+	}
+	
+	
+	
+
+
+
+
+	
 }

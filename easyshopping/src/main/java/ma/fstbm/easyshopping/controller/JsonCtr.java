@@ -50,4 +50,15 @@ public class JsonCtr {
 		return productDAO.getProductsByParam("purchases", 5);				
 	}
 	
+	/*=============================*
+	 *  Get recommended products   *
+	 *=============================*/
+	/*
+	@RequestMapping("/recommended/products")
+	@ResponseBody
+	public List<Product> getRecommendedProducts() {		
+		return null;				
+	}*/
+	
+	
 }

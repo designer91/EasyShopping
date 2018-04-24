@@ -31,18 +31,26 @@
 		window.contextRoot = '${contextRoot}';
 	</script>
 	
+	
     <!-- Bootstrap Core CSS -->
     <link href="${css}/bootstrap.min.css" rel="stylesheet">
+
+    <!-- review less -->
+    <link href="${less}/jquery.rateyo.less" rel="stylesheet/less">
+ 
  
     <!-- Bootstrap DataTable CSS -->
     <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="${css}/app.css" rel="stylesheet">
-    
+
+        
     <!-- less CSS -->
     <link href="${less}/bootstrap.less" rel="stylesheet/less"/>
     
+        
+   
 
 </head>
 
@@ -98,12 +106,17 @@
 		
 	    <!-- jQuery -->
 	    <script src="${js}/jquery.js"></script>
-
+	    
 	    <!-- jQuery Validator -->
 	    <script src="${js}/jquery.validate.min.js"></script>
 	    
 	    <!-- Bootstrap Core JavaScript -->
 	    <script src="${js}/bootstrap.min.js"></script>
+  
+
+  		<!-- rating js -->
+	
+
   
 	   	<!-- jQuery DataTables -->
 	    <script src="${js}/jquery.dataTables.min.js"></script>
@@ -111,12 +124,18 @@
 	    
 	    <!-- less bootstrap --> 
 	    <script src="${js}/less.js"></script> 
+	    
+	    <!-- review js --> 
+	    <script src="${js}/jquery.rateyo.js"></script> 
 	   
 	    <!-- bootbox js -->
 	    <script src="${js}/bootbox.min.js"></script>
+
 	    
 	    <!-- customized js -->
 	    <script src="${js}/customized.js"></script>
+
+
 	   
 	
 	</div>

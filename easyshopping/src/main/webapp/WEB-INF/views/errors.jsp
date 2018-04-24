@@ -4,6 +4,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <spring:url var="css" value="/resources/css"/>
+<spring:url var="less" value="/resources/less"/>
 <spring:url var="js" value="/resources/js"/>
 <spring:url var="images" value="/resources/images/"/>
 
@@ -30,6 +31,11 @@
 
     <!-- Custom CSS -->
     <link href="${css}/app.css" rel="stylesheet">
+    
+    <!-- less CSS -->
+    <link href="${less}/bootstrap.less" rel="stylesheet/less"/>
+    
+    
 
 </head>
 
@@ -80,7 +86,10 @@
 
 		<%@include file="./shared/footer.jsp" %>
 
-	</div>
+	</div>	
+		
+	<!-- less bootstrap --> 
+	<script src="${js}/less.js"></script> 
 		
 </body>
 

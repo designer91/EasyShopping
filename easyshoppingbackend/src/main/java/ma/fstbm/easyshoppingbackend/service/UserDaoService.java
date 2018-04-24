@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import ma.fstbm.easyshoppingbackend.dao.UserDAO;
-import ma.fstbm.easyshoppingbackend.domain.ShoppingCart;
 import ma.fstbm.easyshoppingbackend.domain.User;
 import ma.fstbm.easyshoppingbackend.domain.UserAddress;
 

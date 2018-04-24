@@ -1,7 +1,10 @@
 package ma.fstbm.easyshopping.controller;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,16 +13,23 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import ma.fstbm.easyshopping.exception.ProductNotAvailableException;
 import ma.fstbm.easyshoppingbackend.dao.CategoryDAO;
 import ma.fstbm.easyshoppingbackend.dao.ProductDAO;
+import ma.fstbm.easyshoppingbackend.dao.ReviewDAO;
+import ma.fstbm.easyshoppingbackend.dao.UserDAO;
 import ma.fstbm.easyshoppingbackend.domain.Category;
 import ma.fstbm.easyshoppingbackend.domain.Product;
+import ma.fstbm.easyshoppingbackend.domain.Review;
+import ma.fstbm.easyshoppingbackend.domain.User;
 
 
 @Controller
@@ -32,6 +42,14 @@ public class PageController {
 	
 	@Autowired
 	private ProductDAO productDAO;
+	
+	@Autowired
+	private UserDAO userDAO;
+	
+	@Autowired
+	private ReviewDAO reviewDAO;	
+	
+	
 	
 	@RequestMapping(value = {"/", "/home", "/index"})
 	public ModelAndView index() {
@@ -65,7 +83,7 @@ public class PageController {
 	}
 	
 	/*
-	 * load all category's products 
+	 * load all products 
 	 */
 	@RequestMapping(value = {"/show/all/products"})
 	public ModelAndView showAllProducts() {
@@ -102,16 +120,21 @@ public class PageController {
 	/*
 	 *     showing single product 
 	 * */
-	@RequestMapping(value="/show/{id}/product")
-	public ModelAndView viewSingleProduct(@PathVariable("id") Long id) throws ProductNotAvailableException {
+	@ResponseBody
+	@RequestMapping(value="/show/{id}/product", method=RequestMethod.GET)
+	public ModelAndView viewSingleProduct(@PathVariable("id") Long id) 
+													throws ProductNotAvailableException {
+		
 		
 		ModelAndView mv = new ModelAndView("page");
 		
 		Product product = productDAO.getProduct(id);
-		
+	
+
 		if (product == null) {
 			throw new ProductNotAvailableException();
 		}
+				
 		
 		/* update the count of views */
 		product.setViews(product.getViews() + 1);
@@ -119,6 +142,14 @@ public class PageController {
 		
 		mv.addObject("title", product.getProductName());
 		mv.addObject("product", product);
+		
+		/*=== Create New Review ===*/
+		
+		Review review = new Review();
+		
+		mv.addObject("review", review);
+		
+		review.setProduct(product);
 		
 		mv.addObject("userClickViewProduct", true);
 		
@@ -185,6 +216,44 @@ public class PageController {
 	    }
 		
 		return "redirect:/login?logout";
+		
+	}
+	
+	
+	
+	/*======== Send Reviews ========*/
+	
+	@RequestMapping(value="/product/review", method=RequestMethod.POST)
+	public ModelAndView sendReview(@Valid @ModelAttribute("review") Review review,
+									 @RequestParam("hiddenRating") float hiddenRating,
+									 	@RequestParam(value="id", required = true) Long id) {
+		
+		ModelAndView mv = new ModelAndView("page");
+		
+		/*======== get the current user ===========*/
+		
+		String email = SecurityContextHolder.getContext().getAuthentication().getName();
+		
+		User currentUser = userDAO.getByEmail(email);
+		
+		
+		/*========= get the current product =============*/ 
+	
+		
+		Product p = productDAO.getProduct(id);		
+		
+		review.setProduct(p);
+		
+		review.setUser(currentUser);
+			
+		review.setPreference(hiddenRating);
+		
+		review.setDatePost(new Date());
+			
+		reviewDAO.createReview(review);
+	
+		
+		return mv;
 		
 	}
 	

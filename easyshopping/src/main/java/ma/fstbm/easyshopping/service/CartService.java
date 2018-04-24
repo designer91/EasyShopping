@@ -166,7 +166,7 @@ public class CartService {
 	
 	
 	/*=========================
-	  *  Remove the Cart Line  *
+	  *  Validate the Cart Line  *
 	   =========================*/
 	
 	public String validateCartLine() {

@@ -9,14 +9,7 @@ $(function(){
 			$(".se-pre-con").fadeOut("slow");
 		}, 500);			
 	});	
-	
-	
-	// for the hamburger button 
-	
-	$('.animated-icon1').click(function(){
-        $(this).toggleClass('open');
-    });
-	
+
 	
 	/*
 	 *		switch between navigation menus 
@@ -474,6 +467,25 @@ $(function(){
 			}
 		}
 	});			
+	
+	
+	
+	
+	/*****************
+	  *    ratings    *
+	   * ***************/
+	
+	$("#rating").rateYo({
+		rating: 0,
+	    maxValue: 5,
+	    numStars: 5,
+	    halfStar: true,
+	    starWidth: "40px",
+	    onChange: function (rating, rateYoInstance) {
+			$('#hiddenRating').val(rating);
+		}
+	  });
+	
 	
 	
 	

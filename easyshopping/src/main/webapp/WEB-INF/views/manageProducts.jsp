@@ -113,7 +113,7 @@
 										<!-- hidden fields -->
 										<sf:hidden path="productID"/>
 										<sf:hidden path="supplierID"/>
-										<sf:hidden path="active"/>								
+										<sf:hidden path="active"/>							
 										<button type="button" class="btn btn-warning btn-xs" data-toggle="modal" 
 												data-target="#myCategoryModal">Add Category</button>
 									</div>

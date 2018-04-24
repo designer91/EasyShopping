@@ -2,7 +2,6 @@ package ma.fstbm.easyshoppingbackend.dao;
 
 import java.util.List;
 
-import ma.fstbm.easyshoppingbackend.domain.ShoppingCart;
 import ma.fstbm.easyshoppingbackend.domain.User;
 import ma.fstbm.easyshoppingbackend.domain.UserAddress;
 
@@ -11,7 +10,7 @@ public interface UserDAO {
 		// user related operations
 		User getByEmail(String email);
 		User get(Long id);
-
+		
 		// add a user
 		boolean addUser(User user);
 		
