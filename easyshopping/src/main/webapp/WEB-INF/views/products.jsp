@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
 
 	<div class="col-md-3">
 	
@@ -55,7 +55,7 @@
 				
 					<div class="table-responsive">
 					
-						<table id="productsTable" class="table table-striped table-bordered"
+						<table id="productsTable" class="table table-bordered table-hover"
 								style="width: 100%;">
 		
 							<thead>

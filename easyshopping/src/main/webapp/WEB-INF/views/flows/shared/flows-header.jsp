@@ -20,7 +20,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+	
+	<link rel="icon" href="${images}/easyshopping-logo.png" type="image/png" sizes="16x16">
+	
     <title>EasyShopping - ${title}</title>
 
 	<script type="text/javascript">

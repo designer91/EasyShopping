@@ -1,7 +1,8 @@
 package ma.fstbm.easyshoppingbackend.domain;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Collection;
+import java.util.LinkedHashSet;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -48,14 +49,15 @@ public class User implements Serializable{
 	private String confirmPassword;
 	
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy="user")
-	private List<Review> reviews;
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy="user")
+	private Collection<Review> reviews = new LinkedHashSet<Review>();
 
-	public List<Review> getReviews() {
+	
+	public Collection<Review> getReviews() {
 		return reviews;
 	}
 
-	public void setReviews(List<Review> reviews) {
+	public void setReviews(Collection<Review> reviews) {
 		this.reviews = reviews;
 	}
 

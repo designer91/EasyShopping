@@ -31,6 +31,9 @@ $(function(){
 	case 'User Cart':
 		$('#userCart').addClass('active');
 		break;
+	case 'User Recommendations':
+		$('#recommendations').addClass('active');
+		break;
 	default:
 		if (menu == "Home" ) { break; }
 		$('#listProducts').addClass('active');
@@ -475,18 +478,26 @@ $(function(){
 	  *    ratings    *
 	   * ***************/
 	
-	$("#rating").rateYo({
-		rating: 0,
+    $("#rating").rateYo({
+		
+    	rating: 0,
 	    maxValue: 5,
 	    numStars: 5,
 	    halfStar: true,
-	    starWidth: "40px",
+	    starWidth: "30px",
+	    
+	    //starSvg: '<img src="' + window.contextRoot + '/resources/images/star.svg"/>',
+	   
 	    onChange: function (rating, rateYoInstance) {
 			$('#hiddenRating').val(rating);
 		}
-	  });
-	
-	
-	
-	
+		
+	});
+
+    
+    $('.review [type="submit"]').click(function(){
+    	 swal("Good job!", "Thank you for rating this product!", "success");
+	});	
+   
+  
 });

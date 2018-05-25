@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class FileUploading {
 
-	private static final String ABSOLUTE_PATH = "D:\\Projects\\EasyShopping\\easyshopping\\src\\main\\webapp\\assets\\images";
+	private static final String ABSOLUTE_PATH = "C:\\Users\\Nabil\\Documents\\my_workspace\\EasyShopping\\easyshopping\\src\\main\\webapp\\assets\\images\\";
 	private static String REAL_PATH = null;
 	private static final Logger logger = LoggerFactory.getLogger(FileUploading.class);
 	
@@ -56,7 +56,7 @@ public class FileUploading {
 		// get the real server path
 		REAL_PATH = request.getSession().getServletContext().getRealPath("/assets/images/");
 	
-		String imageURL = "http://placehold.it/640X480?text=No Image";
+		String imageURL = "C:\\Users\\Nabil\\Documents\\my_workspace\\EasyShopping\\easyshopping\\src\\main\\webapp\\assets\\images\\640X480.png";
 		String destinationServerFile = REAL_PATH + code + ".jpg";
 		String destinationProjectFile = REAL_PATH + code + ".jpg";
 				

@@ -136,17 +136,14 @@ public class ProductDaoService implements ProductDAO{
 		
 		return sessionFactory
 					.getCurrentSession()
-					.createQuery(query,Product.class)
-					.setFirstResult(0)
-					.setMaxResults(count)
-					.getResultList();
+						.createQuery(query,Product.class)
+							.setFirstResult(0)
+								.setMaxResults(count)
+									.getResultList();
 					
 		
 	}
-	
-	
-	
-	
+
 	
 	@Override
 	public Product getProductByReview(Long id) {
@@ -162,10 +159,6 @@ public class ProductDaoService implements ProductDAO{
 	}
 	
 	
-	
-
-
-
 
 	
 }

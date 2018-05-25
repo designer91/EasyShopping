@@ -82,6 +82,14 @@ public class PageController {
 		return mv;
 	}
 	
+	@RequestMapping(value = {"/all/recommendations"})
+	public ModelAndView rec() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "User Recommendations");
+		mv.addObject("userClickShowRecommendations", true);
+		return mv;
+	}
+	
 	/*
 	 * load all products 
 	 */
@@ -224,12 +232,10 @@ public class PageController {
 	/*======== Send Reviews ========*/
 	
 	@RequestMapping(value="/product/review", method=RequestMethod.POST)
-	public ModelAndView sendReview(@Valid @ModelAttribute("review") Review review,
+	public String sendReview(@Valid @ModelAttribute("review") Review review,
 									 @RequestParam("hiddenRating") float hiddenRating,
 									 	@RequestParam(value="id", required = true) Long id) {
-		
-		ModelAndView mv = new ModelAndView("page");
-		
+	
 		/*======== get the current user ===========*/
 		
 		String email = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -251,13 +257,10 @@ public class PageController {
 		review.setDatePost(new Date());
 			
 		reviewDAO.createReview(review);
-	
 		
-		return mv;
+		return "redirect:/show/" + review.getProduct().getProductID() + "/product";
 		
 	}
-	
-
 	
 	
 }

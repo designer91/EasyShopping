@@ -14,6 +14,7 @@ public interface UserDAO {
 		// add a user
 		boolean addUser(User user);
 		
+		List<User> getAllUsers();
 		
 //		UserAddress getBillingAddress(User user);
 //		

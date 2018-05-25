@@ -7,8 +7,8 @@
 		<div class="col-sm-offset-4 col-sm-4">
 
 			<div class="text-center">
-				<h1>Welcome!</h1>
-				<h3>easyshopping.com</h3>
+				<h2>Welcome!</h2>
+				<h4>easyshopping.com</h4>
 				<h6>You can use your email address as UserName to login!</h6>
 				<div>
 					<a href="${contextRoot}/login" class="btn btn-lg btn-success">Login Here</a>  &nbsp;

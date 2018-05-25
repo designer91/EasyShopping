@@ -7,6 +7,7 @@
 <spring:url var="less" value="/resources/less"/>
 <spring:url var="js" value="/resources/js"/>
 <spring:url var="images" value="/resources/images/"/>
+<spring:url var="angular-ui-carousel" value="/resources/angular-ui-carousel/dist"/>
 
 <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>    
 
@@ -23,7 +24,9 @@
 
 	<meta name="_csrf" content="${_csrf.token}">
 	<meta name="_csrf_header" content="${_csrf.headerName}">
-
+	
+	<link rel="icon" href="${images}/easyshopping-logo.png" type="image/png" sizes="16x16">
+	
     <title>EasyShopping - ${title}</title>
 
 	<script type="text/javascript">
@@ -38,20 +41,17 @@
     <!-- review less -->
     <link href="${less}/jquery.rateyo.less" rel="stylesheet/less">
  
- 
     <!-- Bootstrap DataTable CSS -->
     <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="${css}/app.css" rel="stylesheet">
-
         
     <!-- less CSS -->
     <link href="${less}/bootstrap.less" rel="stylesheet/less"/>
-    
-        
-   
-
+	
+	<link href="${css}/font-awesome.css" rel="stylesheet/css"/>
+	
 </head>
 
 <body>
@@ -95,6 +95,10 @@
 		    <c:if test="${userClickShowCart == true}">
 		    	<%@ include file="cart.jsp" %>
 		    </c:if>
+		    <!-- load when a user click show cart -->
+		    <c:if test="${userClickShowRecommendations == true}">
+		    	<%@ include file="recommendations.jsp" %>
+		    </c:if>
 		  
 		</div>
 	
@@ -134,9 +138,9 @@
 	    
 	    <!-- customized js -->
 	    <script src="${js}/customized.js"></script>
-
-
 	   
+	   	<!-- sweetalert js -->
+	    <script src="${js}/sweetalert.min.js"></script>
 	
 	</div>
 </body>

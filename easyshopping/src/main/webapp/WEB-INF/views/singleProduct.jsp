@@ -57,7 +57,7 @@
 		<!-- Display the product description -->	
 		<div class="col-xs-12 col-sm-8">
 		
-			<h3>${product.productName}</h3>
+			<h4>${product.productName}</h4>
 			<hr/>
 			
 			<p>${product.productDesc}</p>
@@ -115,6 +115,13 @@
 	<br><br>
 	
 	<div class="row">
+		
+			<!-- <div class="col-xs-12 col-sm-8 pull-right">			
+				<div class="alert alert-success alert-dissmissible" id="msgRatingSuccess">
+					
+				</div>				
+			</div> -->
+		
 
 		<div class="col-xs-12 col-sm-8 pull-right">
 
@@ -125,14 +132,14 @@
 			<sf:form method="post" modelAttribute="review" id="review"
 				action="${contextRoot}/product/review?id=${product.productID}">
 
-				<table border="2">
+				<table class="table table-condensed">
 
 					<tr>
 						
 						<td>Rating</td>
 						<td>
 							<div id="rating"></div> 
-							<input type="hidden" id="hiddenRating" name="hiddenRating">
+							<input type="hidden" id="hiddenRating" name="hiddenRating" required>
 						</td>
 
 					</tr>
@@ -140,14 +147,16 @@
 					<tr>
 					
 						<td>Message</td>
-						<td><sf:textarea path="content"></sf:textarea></td>
+						<td>
+							<sf:textarea path="content" cols="26"></sf:textarea>
+						</td>
 
 					</tr>
 
 					<tr>
 
 						<td>&nbsp;</td>
-						<td><input type="submit" name="submit" value="Rate"
+						<td class="review"><input type="submit" name="submit" value="Rate"
 							class="btn btn-warning" /></td>
 							<sf:hidden path="product.productID"/>	
 							<sf:hidden path="user.userID"/>	
@@ -165,6 +174,44 @@
 		
 
 		</div>
+		
+		
+		<div class="col-xs-12 col-sm-8 pull-right">
+
+		<!-- All Previews -->
+
+		<security:authorize access="hasAuthority('USER')">
+			
+			<h4 style="background-color: #fff; padding: 5px 5px 5px 5px; 
+						border-radius: 3px 3px 3px 3px;">
+				All previews for the product 
+				<strong>${product.productName}</strong> 
+			</h4>
+
+				<table class="table table-condensed">
+
+					<c:forEach var="rate" items="${product.reviews}">
+					
+						<tr>
+							
+							<td>
+								User: <b>${rate.user.userID}</b><br>
+								Rating: <b>${rate.preference}</b><br>
+								Content: ${rate.content}</b><br>
+								Date: <b>${rate.datePost}</b> 
+							</td>
+							
+						</tr>
+						
+					</c:forEach>
+
+				</table>
+
+		</security:authorize>
+		
+
+		</div>
+
 
 	</div>
 

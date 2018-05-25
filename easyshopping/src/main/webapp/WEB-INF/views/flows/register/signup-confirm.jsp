@@ -7,7 +7,7 @@
 		<!-- column to display the personal details -->
 		<div class="col-sm-6">
 
-			<div class="panel panel-primary">
+			<div class="panel panel-warning">
 				<div class="panel-heading">
 					<h4>Personal Informations Details</h4>
 				</div>
@@ -35,7 +35,7 @@
 		<!-- column to display the address  -->
 		<div class="col-sm-6">
 
-			<div class="panel panel-primary">
+			<div class="panel panel-warning">
 				<div class="panel-heading">
 					<h4>Billing Address Informations</h4>
 				</div>
@@ -70,7 +70,7 @@
 			<div class="text-center">
 
 				<!--  go to the success page -->
-				<a href="${flowExecutionUrl}&_eventId_submit" class="btn btn-primary">Confirm</a>
+				<a href="${flowExecutionUrl}&_eventId_submit" class="btn btn-default">Confirm</a>
 
 			</div>
 

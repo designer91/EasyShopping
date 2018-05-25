@@ -1,6 +1,8 @@
 package ma.fstbm.easyshoppingbackend.domain;
 
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.UUID;
 
@@ -35,7 +37,7 @@ public class Product implements Serializable{
 	private String productSKU;
 	@NotBlank(message="please enter a name for the product")
 	private String productName;
-	//@JsonIgnore
+	@JsonIgnore
 	@NotBlank(message="please enter a description for the product")
 	private String productDesc;
 	@Min(value=1, message="please note that the price can't be below 1")
@@ -63,23 +65,23 @@ public class Product implements Serializable{
 	}
 	
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy="product")
-	private List<Review> reviews;
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy="product")
+	private Collection<Review> reviews = new LinkedHashSet<Review>();
 	
-	public List<Review> getReviews() {
+	public Collection<Review> getReviews() {
 		return reviews;
 	}
 
-	public void setReviews(List<Review> reviews) {
+
+	public void setReviews(Collection<Review> reviews) {
 		this.reviews = reviews;
 	}
-	
+
 	
 	
 	/*
 	 * 		Constructors
 	 */
-
 
 	public Product() {
 		this.productCode = "PRD-" + UUID.randomUUID().toString().substring(26).toUpperCase();

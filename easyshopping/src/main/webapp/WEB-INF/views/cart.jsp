@@ -8,7 +8,7 @@
 	<c:if test="${not empty message}">
 		
 		<div class="alert alert-info">
-			<h3 class="text-center">${message}</h3>
+			<h4 class="text-center">${message}</h4>
 		</div>		
 	
 	</c:if>
@@ -40,8 +40,10 @@
 								<div class="row">
 									<div class="col-sm-2 hidden-xs">
 										<img src="${images}/${cartLine.product.productCode}.jpg" 
-												alt="${cartLine.product.productName}" class="img-responsive dataTableImg"/></div>
-									<div class="col-sm-10">
+												alt="${cartLine.product.productName}" 
+													class="dataTableImg"/>
+									</div>
+									<div class="col-sm-10" style="padding-left: 50px;">
 										<h4 class="nomargin">${cartLine.product.productName} 
 											<c:if test="${cartLine.available == false}">
 												<strong style="color:red">(Not Available)</strong> 

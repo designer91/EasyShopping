@@ -8,13 +8,13 @@ body {
   margin: 0;
   padding-bottom: 6rem;
   min-height: 100%;
-  font-family: "Times new Roman", Arial, serif;
+  font-family: 'Times New Roman', Times, serif;
+  font-size:12px;
 }
-
-
-
-
-
+.logo{
+	position: relative;
+    bottom: 16px;
+}
 .slide-image {
     width: 100%;
 }
@@ -167,6 +167,10 @@ input:checked + .slider:before {
 	height : 180px;
 }
 
+.card-title{
+	height:40px;
+}
+
 /*********************
   * loader for pages  *
    *********************/
@@ -226,11 +230,38 @@ input:checked + .slider:before {
 	
 }
 
+h3 {
+	color: #000;
+	font-size: 26px;
+	font-weight: 300;
+	text-align: center;
+	text-transform: uppercase;
+	position: relative;
+	margin: 30px 0 60px;
+}
+h3::after {
+	content: "";
+	width: 100px;
+	position: absolute;
+	margin: 0 auto;
+	height: 4px;
+	border-radius: 1px;
+	background: #7ac400;
+	left: 0;
+	right: 0;
+	bottom: -20px;
+}
 
-/* Preview */
+/*	contact	 */
+.contact-text{
+	background-color: #fff;
+	padding: 5px 5px 5px 5px;
+	border-radius: 3px 3px 3px 3px;
+	width: 293.33PX;
+}
 
-
-
-
-   
-   
+.lead {
+    background-color: #fff;
+    padding: 3px 3px 3px 3px;
+    border-radius: 4px;
+}

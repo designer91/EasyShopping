@@ -191,9 +191,15 @@
 	
 	<!-- Admin Table Control -->
 	
-	<hr/>	
-	<h1>Available Products</h1>
-	<hr/>
+	<div>
+		<hr style="color: #000; background: #919185; height: 4px;">
+	</div>
+	
+	<br>
+	
+	<h3>Available <b>Products</b></h3>
+	
+	<br><br>
 	
 	<div class="row">
 				
@@ -203,7 +209,7 @@
 			
 				<div class="table-responsive">
 				
-					<table id="adminProductsTable" class="table table-striped table-bordered"
+					<table id="adminProductsTable" class="table table-bordered table-hover"
 								style="width: 100%;">
 							
 						<thead>					

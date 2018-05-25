@@ -22,8 +22,6 @@ public class Category implements Serializable{
 	private String categoryName;
 	@Column(name = "category_description")
 	private String categoryDesc;
-	@Column(name = "category_image")
-	private String categoryImage;
 	@Column(name = "is_active")
 	private boolean active = true;
 
@@ -35,7 +33,6 @@ public class Category implements Serializable{
 		super();
 		this.categoryName = categoryName;
 		this.categoryDesc = categoryDesc;
-		this.categoryImage = categoryImage;
 		this.active = active;
 	}
 
@@ -63,14 +60,6 @@ public class Category implements Serializable{
 		this.categoryDesc = categoryDesc;
 	}
 
-	public String getCategoryImage() {
-		return categoryImage;
-	}
-
-	public void setCategoryImage(String categoryImage) {
-		this.categoryImage = categoryImage;
-	}
-
 	public boolean isActive() {
 		return active;
 	}
@@ -82,7 +71,7 @@ public class Category implements Serializable{
 	@Override
 	public String toString() {
 		return "Category [categoryID=" + categoryID + ", categoryName=" + categoryName + ", categoryDesc="
-				+ categoryDesc + ", categoryImage=" + categoryImage + ", active=" + active + "]";
+				+ categoryDesc + ", active=" + active + "]";
 	}
 	
 }

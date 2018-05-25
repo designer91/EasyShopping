@@ -56,11 +56,12 @@ public class UserDaoService implements UserDAO{
 	public User getByEmail(String email) {
 		String selectQuery = "FROM User WHERE email = :email";
 		try {
-			
-			return sessionFactory.getCurrentSession()
-									.createQuery(selectQuery, User.class)
-										.setParameter("email", email)
-											.getSingleResult();
+			if (!selectQuery.isEmpty()) {
+				return sessionFactory.getCurrentSession()
+						.createQuery(selectQuery, User.class)
+							.setParameter("email", email)
+								.getSingleResult();
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -121,6 +122,25 @@ public class UserDaoService implements UserDAO{
 			return null;
 		}
 		
+	}
+
+
+	@Override
+	public List<User> getAllUsers() {
+		
+		String selectQuery = "FROM User";
+		try {
+			
+			return sessionFactory.getCurrentSession()
+									.createQuery(selectQuery, User.class)
+											.getResultList();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	
 	}
 	
 	

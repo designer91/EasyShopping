@@ -20,7 +20,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+	
+	<link rel="icon" href="${images}/easyshopping-logo.png" type="image/png" sizes="16x16">
+	
     <title>EasyShopping - ${title}</title>
 
 	<script type="text/javascript">
@@ -69,7 +71,8 @@
 
 						<div class="col-md-offset-3 col-md-6">
 						
-							<div class="alert alert-danger">
+							<div class="alert alert-danger alert-dissmissible">
+								<button type="button" class="close" data-dissmiss="alert">&times;</button>
 								${message}
 							</div>
 						
@@ -87,7 +90,8 @@
 
 						<div class="col-md-offset-3 col-md-6">
 						
-							<div class="alert alert-success">
+							<div class="alert alert-success alert-dissmissible">
+								<button type="button" class="close" data-dissmiss="alert">&times;</button>
 								${logout}
 							</div>
 						
@@ -101,7 +105,7 @@
 
 					<div class="col-md-offset-3 col-md-6">
 	
-						<div class="panel panel-primary">
+						<div class="panel panel-warning">
 	
 							<div class="panel-heading">
 								<h4>Login</h4>
@@ -129,7 +133,7 @@
 									</div>
 									<div class="form-group">
 										<div class="col-md-offset-4 col-md-8">
-											<input type="submit" value="Login" class="btn btn-primary" />
+											<input type="submit" value="Login" class="btn btn-default" />
 											<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> 
 										</div>
 									</div>

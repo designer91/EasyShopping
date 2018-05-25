@@ -3,7 +3,7 @@
    ==========================*/
 
 var app = angular.module('EasyShoppingApp', [
-
+	
 ]);
 
 app.controller('ProductController', function($http) {
@@ -12,6 +12,9 @@ app.controller('ProductController', function($http) {
 	
 	prods.mostViewdProducts = [];
 	prods.mostPurchasedProducts = [];
+	
+	prods.recommendations = [];
+	prods.allRecommendations = [];
 	
 	prods.fetchProducts = function() {
 		
@@ -25,7 +28,20 @@ app.controller('ProductController', function($http) {
 		.then(function(response) {
 			prods.mostPurchasedProducts = response.data;
 		});
-				
+		
+		
+		// recommendations:
+		
+		$http.get('/easyshopping/json/data/recommendations/products')
+		.then(function(response) {
+			prods.recommendations = response.data;
+		});
+			
+		$http.get('/easyshopping/json/data/all/recommendations/products')
+		.then(function(response) {
+			prods.allRecommendations = response.data;
+		});
+		
 	}
 	
 	

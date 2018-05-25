@@ -21,6 +21,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+	<link rel="icon" href="${images}/easyshopping-logo.png" type="image/png" sizes="16x16">
+	
     <title>EasyShopping - ${title}</title>
     
     <!-- Bootstrap Core CSS -->

@@ -8,7 +8,7 @@
 
 		<div class="col-md-6 col-md-offset-3">
 
-			<div class="panel panel-primary">
+			<div class="panel panel-warning">
 
 				<div class="panel-heading">
 					<h4>Sign Up - Personal Informations</h4>

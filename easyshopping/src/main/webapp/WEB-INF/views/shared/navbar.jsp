@@ -13,9 +13,14 @@
 				  <span class="icon-bar middle-bar"></span>
 				  <span class="icon-bar bottom-bar"></span>
 			</button>
-			
 
-			<a class="navbar-brand" href="${contextRoot}/home">EasyShopping</a>
+			<a class="navbar-brand" href="${contextRoot}/home">
+				EasyShopping
+			</a>
+			
+			<%-- <a class="navbar-brand" href="${contextRoot}/home">
+				<img class="logo" src="${images}/logo-2.png" alt="">
+			</a> --%>
 
 		</div>
 
@@ -23,27 +28,68 @@
 
 			<ul class="nav navbar-nav">
 			
-				<li id="about"><a href="${contextRoot}/about">About</a></li>
-			
-				<li id="contact"><a href="${contextRoot}/contact">Contact</a></li>
-			
-				<li id="listProducts"><a href="${contextRoot}/show/all/products">Show Products</a></li>
+				<li id="listProducts">
+					<a href="${contextRoot}/show/all/products">
+						<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+						&#160;Show Products
+					</a>
+				</li>
 			
 				<security:authorize access="hasAuthority('ADMIN')">
 			
-					<li id="manageProducts"><a href="${contextRoot}/manage/products">manage products</a></li>
+					<li id="manageProducts">
+						<a href="${contextRoot}/manage/products">
+							<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+							&#160;manage products
+						</a>
+					</li>
 				
 				</security:authorize>
+				
+				<security:authorize access="hasAuthority('USER')">
 			
+					<li id="recommendations">
+						<a href="${contextRoot}/all/recommendations">
+							<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+							&#160;recommended products
+						</a>
+					</li>
+				
+				</security:authorize>
+				
+				<li id="about">
+					<a href="${contextRoot}/about">
+						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+						&#160;About
+					</a>
+				</li>
+			
+				<li id="contact">
+					<a href="${contextRoot}/contact">
+						<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+						&#160;Contact
+					</a>
+				</li>
+				
 			</ul>
 			
 			<ul class="nav navbar-nav navbar-right">
 				
 				<security:authorize access="isAnonymous()">
 				
-					<li id="register"><a href="${contextRoot}/register">sign up</a></li>
+					<li id="register">
+						<a href="${contextRoot}/register">
+							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+							&#160;sign up
+						</a>
+					</li>
 					
-					<li id="login"><a href="${contextRoot}/login">Login</a></li>
+					<li id="login">
+						<a href="${contextRoot}/login">
+							<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+							&#160;Login
+						</a>
+					</li>
 				
 				</security:authorize>
 				
@@ -53,7 +99,8 @@
 						
 						<a href="javascript.void(0)" class="dropdown-toggle"
 							id="dropdownMenu1" data-toggle="dropdown">
-							${userModel.fullName}
+							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+							&#160;${userModel.fullName}
 							<span class="caret"></span>
 						</a>
 						
@@ -66,8 +113,9 @@
 									<a href="${contextRoot}/cart/show">
 										
 										<span class="glyphicon glyphicon-shopping-cart"></span>
-										
-										<span class="badge">${userModel.cart.cartLines}</span> - ${userModel.cart.grandTotal} dhs
+										&#160;
+										<span class="badge">${userModel.cart.cartLines}</span> 
+										- ${userModel.cart.grandTotal} dhs
 										
 									</a>
 									
@@ -81,7 +129,10 @@
 	
 							<li>
 							
-								<a href="${contextRoot}/perform-logout">Logout</a>	
+								<a href="${contextRoot}/perform-logout">
+									<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+									&#160;Logout
+								</a>	
 							
 							</li>
 							
